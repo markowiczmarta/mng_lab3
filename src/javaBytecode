@@ -1,0 +1,219 @@
+// class version 61.0 (61)
+// access flags 0x21
+public class BubbleSort {
+
+  // compiled from: BubbleSort.java
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x1
+  public <init>()V
+   L0
+    LINENUMBER 1 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this LBubbleSort; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x8
+  static bubblesort([I)V
+   L0
+    LINENUMBER 3 L0
+    ICONST_0
+    ISTORE 1
+   L1
+   FRAME APPEND [I]
+    ILOAD 1
+    ALOAD 0
+    ARRAYLENGTH
+    IF_ICMPGE L2
+   L3
+    LINENUMBER 4 L3
+    ICONST_0
+    ISTORE 2
+   L4
+   FRAME APPEND [I]
+    ILOAD 2
+    ALOAD 0
+    ARRAYLENGTH
+    ICONST_1
+    ISUB
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 5 L6
+    ALOAD 0
+    ILOAD 2
+    IALOAD
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    IADD
+    IALOAD
+    IF_ICMPLE L7
+   L8
+    LINENUMBER 6 L8
+    ALOAD 0
+    ILOAD 2
+    IALOAD
+    ISTORE 3
+   L9
+    LINENUMBER 7 L9
+    ALOAD 0
+    ILOAD 2
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    IADD
+    IALOAD
+    IASTORE
+   L10
+    LINENUMBER 8 L10
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    IADD
+    ILOAD 3
+    IASTORE
+   L7
+    LINENUMBER 4 L7
+   FRAME SAME
+    IINC 2 1
+    GOTO L4
+   L5
+    LINENUMBER 3 L5
+   FRAME CHOP 1
+    IINC 1 1
+    GOTO L1
+   L2
+    LINENUMBER 12 L2
+   FRAME CHOP 1
+    ICONST_0
+    ISTORE 1
+   L11
+   FRAME APPEND [I]
+    ILOAD 1
+    ALOAD 0
+    ARRAYLENGTH
+    IF_ICMPGE L12
+   L13
+    LINENUMBER 13 L13
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 0
+    ILOAD 1
+    IALOAD
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001 "
+    ]
+    INVOKEVIRTUAL java/io/PrintStream.print (Ljava/lang/String;)V
+   L14
+    LINENUMBER 12 L14
+    IINC 1 1
+    GOTO L11
+   L12
+    LINENUMBER 15 L12
+   FRAME CHOP 1
+    RETURN
+   L15
+    LOCALVARIABLE temp I L9 L7 3
+    LOCALVARIABLE j I L4 L5 2
+    LOCALVARIABLE i I L1 L2 1
+    LOCALVARIABLE i I L11 L12 1
+    LOCALVARIABLE tab [I L0 L15 0
+    MAXSTACK = 5
+    MAXLOCALS = 4
+
+  // access flags 0x9
+  public static main([Ljava/lang/String;)V
+   L0
+    LINENUMBER 18 L0
+    BIPUSH 10
+    NEWARRAY T_INT
+    DUP
+    ICONST_0
+    ICONST_1
+    IASTORE
+    DUP
+    ICONST_1
+    ICONST_4
+    IASTORE
+    DUP
+    ICONST_2
+    SIPUSH 2137
+    IASTORE
+    DUP
+    ICONST_3
+    SIPUSH 420
+    IASTORE
+    DUP
+    ICONST_4
+    ICONST_2
+    IASTORE
+    DUP
+    ICONST_5
+    BIPUSH 68
+    IASTORE
+    DUP
+    BIPUSH 6
+    LDC 546423
+    IASTORE
+    DUP
+    BIPUSH 7
+    ICONST_3
+    IASTORE
+    DUP
+    BIPUSH 8
+    ICONST_4
+    IASTORE
+    DUP
+    BIPUSH 9
+    ICONST_5
+    IASTORE
+    ASTORE 1
+   L1
+    LINENUMBER 19 L1
+    ICONST_0
+    ISTORE 2
+   L2
+   FRAME APPEND [[I I]
+    ILOAD 2
+    ALOAD 1
+    ARRAYLENGTH
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 20 L4
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 1
+    ILOAD 2
+    IALOAD
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "\u0001 "
+    ]
+    INVOKEVIRTUAL java/io/PrintStream.print (Ljava/lang/String;)V
+   L5
+    LINENUMBER 19 L5
+    IINC 2 1
+    GOTO L2
+   L3
+    LINENUMBER 22 L3
+   FRAME CHOP 1
+    ALOAD 1
+    INVOKESTATIC BubbleSort.bubblesort ([I)V
+   L6
+    LINENUMBER 23 L6
+    RETURN
+   L7
+    LOCALVARIABLE i I L2 L3 2
+    LOCALVARIABLE args [Ljava/lang/String; L0 L7 0
+    LOCALVARIABLE tab [I L1 L7 1
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
