@@ -1,0 +1,44 @@
+1) Java
+`public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup` -
+definiuje pole statyczne o nazwie `Lookup` typu `java/lang/invoke/MethodHandles$Lookup`.
+
+`public <init>()V`
+definiuje konstruktor klasy BubbleSort, który nie przyjmuje żadnych argumentów.
+
+`ALOAD 0` -
+wczytuje referencję zmiennej lokalnej na stos.
+
+`INVOKESPECIAL java/lang/Object.<init> ()V` -
+wywołuje konstruktor klasy nadrzędnej `java/lang/Object` dla inicjalizacji obiektu.
+
+`RETURN` -wskazuje zakończenie konstruktora i powrót z metody.
+
+`LOCALVARIABLE this LBubbleSort; L0 L1 0` -
+definiuje zmienną lokalną o typie `BubbleSort` w zakresie od L0 do L1.
+
+`static bubblesort([I)V`
+definiuje metodę statyczną `bubblesort`, która przyjmuje jako argument tablicę liczb całkowitych i nie zwraca wartości.
+
+`ICONST_0'- wczytuje wartość 0 na stos.
+
+`ISTORE 1`- zapisuje wartość ze stosu do zmiennej lokalnej o indeksie 1.
+
+`ILOAD 1` - wczytuje wartość ze zmiennej lokalnej o indeksie 1 na stos.
+
+`ARRAYLENGTH` -wczytuje długość tablicy na stos.
+
+ISUB: Odejmuje wartość ze stosu (stałą 1) od wartości na szczycie stosu (długość tablicy).
+
+`IF_ICMPGE L2` - wykonuje skok do etykiety L2, jeśli wartość ze stosu (liczba elementów w tablicy)
+jest większa lub równa wartości ze stosu (wartość zmiennej lokalnej 1).
+
+`LINENUMBER 3 L0` - wskazuje, że następne instrukcje bytecode odpowiadają linii 3 kodu źródłowego i znajdują się
+w obszarze oznaczonym etykietą L0
+
+`LDC ` - wczytuje wartość na stos.
+
+2) Oba bytecody są bardzo podobne i używają tych samych instrukcji.
+Różnią się one tym, że kod Javy w funkcji main używa instrukcji DUP- czyli duplikuje wartość na górze stosu,
+natomiast kod Kotlina używa w tym miejscu dwóch instrukcji: ASTORE I ALOAD, tzn zapisuje wartość w zmiennej lokalnej
+i ładuje ją na stos.
+
