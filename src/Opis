@@ -1,44 +1,81 @@
 1) Java
-`public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup` -
-definiuje pole statyczne o nazwie `Lookup` typu `java/lang/invoke/MethodHandles$Lookup`.
+ public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup  -
+definiuje pole statyczne o nazwie  Lookup  typu  java/lang/invoke/MethodHandles$Lookup .
 
-`public <init>()V`
+public <init>()V
 definiuje konstruktor klasy BubbleSort, który nie przyjmuje żadnych argumentów.
 
-`ALOAD 0` -
-wczytuje referencję zmiennej lokalnej na stos.
+L0, L1... Etykieta oznaczająca początek bloku kodu.
 
-`INVOKESPECIAL java/lang/Object.<init> ()V` -
-wywołuje konstruktor klasy nadrzędnej `java/lang/Object` dla inicjalizacji obiektu.
+ALOAD 0  -wczytuje referencję zmiennej lokalnej na stos.
 
-`RETURN` -wskazuje zakończenie konstruktora i powrót z metody.
+INVOKESPECIAL java/lang/Object.<init> ()V  -
+wywołuje konstruktor klasy nadrzędnej  java/lang/Object  dla inicjalizacji obiektu.
 
-`LOCALVARIABLE this LBubbleSort; L0 L1 0` -
-definiuje zmienną lokalną o typie `BubbleSort` w zakresie od L0 do L1.
+RETURN  -wskazuje zakończenie konstruktora i powrót z metody.
 
-`static bubblesort([I)V`
-definiuje metodę statyczną `bubblesort`, która przyjmuje jako argument tablicę liczb całkowitych i nie zwraca wartości.
+LOCALVARIABLE this LBubbleSort; L0 L1 0  -
+definiuje zmienną lokalną o typie  BubbleSort  w zakresie od L0 do L1.
 
-`ICONST_0'- wczytuje wartość 0 na stos.
+MAXSTACK = 1 - oznacza, że dla danej metody maksymalna liczba elementów znajdujących się na stosie
+w  momencie działania tej metody wynosi 1.
 
-`ISTORE 1`- zapisuje wartość ze stosu do zmiennej lokalnej o indeksie 1.
+MAXLOCALS = 1 - oznacza, że dla danej metody maksymalna liczba lokalnych zmiennych  używanych
+przez tę metodę wynosi 1
 
-`ILOAD 1` - wczytuje wartość ze zmiennej lokalnej o indeksie 1 na stos.
+static bubblesort([I)V
+definiuje metodę statyczną  bubblesort , która przyjmuje jako argument tablicę liczb całkowitych i nie zwraca wartości.
 
-`ARRAYLENGTH` -wczytuje długość tablicy na stos.
+ICONST_0'- wczytuje wartość 0 na stos.
+
+ISTORE 1 - zapisuje wartość ze stosu do zmiennej lokalnej o indeksie 1.
+
+FRAME APPEND [I]- oznacza, że na stosie ramki stosu (frame stack) w bieżącej instrukcji występuje dodatkowy element,
+który jest tablicą typu I (tablica int)
+
+ILOAD 1  - wczytuje wartość ze zmiennej lokalnej o indeksie 1 na stos.
+
+ARRAYLENGTH  -wczytuje długość tablicy na stos.
+
+IF_ICMPGE L2- Jeśli wartość na szczycie stosu jest większa lub równa od wartości pobranej ze stosu,
+skacze do etykiety L2.
+
+ALOAD 0- Ładuje referencję do lokalnej zmiennej 0 (tablicy) na stos.
 
 ISUB: Odejmuje wartość ze stosu (stałą 1) od wartości na szczycie stosu (długość tablicy).
 
-`IF_ICMPGE L2` - wykonuje skok do etykiety L2, jeśli wartość ze stosu (liczba elementów w tablicy)
-jest większa lub równa wartości ze stosu (wartość zmiennej lokalnej 1).
-
-`LINENUMBER 3 L0` - wskazuje, że następne instrukcje bytecode odpowiadają linii 3 kodu źródłowego i znajdują się
+LINENUMBER 3 L0  - wskazuje, że następne instrukcje bytecode odpowiadają linii 3 kodu źródłowego i znajdują się
 w obszarze oznaczonym etykietą L0
 
-`LDC ` - wczytuje wartość na stos.
+IALOAD- Ładuje wartość z tablicy na podstawie indeksu pobranego ze stosu.
 
-2) Oba bytecody są bardzo podobne i używają tych samych instrukcji.
+IADD-  dodawanie dwóch liczb całkowitych.
+
+FRAME SAME- ramka stosu (frame stack) dla danej instrukcji bytecode'u jest taka sama jak dla poprzedniej instrukcji.
+
+IINC- służy do inkrementacji (lub dekrementacji) wartości zmiennej lokalnej o określoną wartość.
+
+GOTO- instrukcja skoku
+
+FRAME CHOP 1- oznacza skrócenie ramki stosu (frame stack) o jeden element.
+
+BIPUSH 8- Umieszcza wartość stałej 8 na stosie.
+
+LDC - wczytuje wartość na stos.
+
+LOCALVARIABLE temp I L9 L7 3- tymczasowe zmienne lokalne używane np. w pętlach.
+
+NEWARRAY T_INT
+
+DUP - duplikuje wartość na górze stosu
+
+SIPUSH 2137- Umieszcza wartość stałej 2137 na stosie.
+
+2) Oba bytecody są bardzo podobne, używają tych samych instrukcji, więc zawierają niewiele różnic.
 Różnią się one tym, że kod Javy w funkcji main używa instrukcji DUP- czyli duplikuje wartość na górze stosu,
 natomiast kod Kotlina używa w tym miejscu dwóch instrukcji: ASTORE I ALOAD, tzn zapisuje wartość w zmiennej lokalnej
 i ładuje ją na stos.
+Różne są flagi dostępu.
+Na początku pliku bytecode kotlina znajdują się metadane czego nie ma w pliku javy.
+
 
